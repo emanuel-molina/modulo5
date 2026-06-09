@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraude Digital Bancario</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- 
+        estructura html5:
+        nav = navegación
+        header = encabezado principal
+        main = contenido principal
+        section = divisiones del contenido
+        footer = cierre de la página
+    -->
+
+    <!-- sección 1: navegación principal -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+
+            <a class="navbar-brand" href="#inicio">Seguridad Bancaria</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#inicio">Sección 1: Inicio</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#seccion3">Sección 3: Fraudes</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#seccion5">Sección 5: Evaluar</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#seccion6">Sección 6: Plan</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#seccion8">Sección 8: Seguimiento</a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- sección 1: hero / encabezado -->
+    <header id="inicio" class="hero">
+        <div class="container text-center text-white">
+            <h1>Fraude Digital Bancario</h1>
+            <p>
+                Una página educativa para identificar fraudes comunes, proteger cuentas bancarias
+                y saber qué hacer ante una situación sospechosa.
+            </p>
+            <a href="#seccion5" class="btn btn-light">Evaluar una situación</a>
+        </div>
+    </header>
+
+    <main class="container my-5">
+
+        <!-- sección 2: introducción -->
+        <section id="seccion2" class="caja mb-4">
+            <h2>Sección 2: ¿De qué trata esta página?</h2>
+
+            <p>
+                El fraude digital bancario ocurre cuando una persona intenta engañar a otra para obtener
+                acceso a su dinero, cuentas, tarjetas, contraseñas o códigos de seguridad. En muchos casos,
+                el fraude llega por mensajes de texto, correos electrónicos, llamadas o aplicaciones de pago.
+            </p>
+
+            <p>
+                En Puerto Rico, uno de los ejemplos que requiere cuidado es el uso de ATH Móvil, ya que
+                muchas personas lo utilizan para enviar y recibir dinero rápidamente. Por eso, antes de
+                contestar un mensaje o enviar dinero, es importante verificar la situación con calma.
+            </p>
+        </section>
+
+        <!-- sección 3: resumen generado por javascript -->
+        <section id="seccion3" class="mb-4">
+            <h2 class="titulo text-center mb-4">Sección 3: Resumen del portal</h2>
+
+            <div class="row" id="panelResumen"></div>
+        </section>
+
+        <!-- sección 4: tipos de fraude generados por javascript -->
+        <section id="seccion4" class="mb-4">
+            <h2 class="titulo text-center mb-4">Sección 4: Tipos de fraude más comunes</h2>
+
+            <div class="row" id="tarjetasFraude"></div>
+        </section>
+
+        <!-- sección 5: ejemplos usando accordion bootstrap -->
+        <section id="seccion5" class="mb-4">
+            <h2 class="titulo text-center mb-4">Sección 5: Ejemplos de mensajes sospechosos</h2>
+
+            <div class="accordion" id="accordionFraude">
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="ejemploUno">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#respuestaUno">
+                            “Tu cuenta fue bloqueada”
+                        </button>
+                    </h2>
+
+                    <div id="respuestaUno" class="accordion-collapse collapse show" data-bs-parent="#accordionFraude">
+                        <div class="accordion-body">
+                            Este mensaje busca crear preocupación para que la persona entre rápido a un enlace.
+                            Lo más seguro es verificar directamente desde la aplicación o página oficial del banco.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="ejemploDos">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#respuestaDos">
+                            “Te envié dinero por error”
+                        </button>
+                    </h2>
+
+                    <div id="respuestaDos" class="accordion-collapse collapse" data-bs-parent="#accordionFraude">
+                        <div class="accordion-body">
+                            En este caso, una persona puede pedir que devuelvas dinero rápido. Antes de hacerlo,
+                            verifica directamente en la aplicación oficial y no actúes por presión.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- sección 6: evaluador de riesgo con javascript -->
+        <section id="seccion6" class="caja mb-4">
+            <h2>Sección 6: Evaluador de situación sospechosa</h2>
+
+            <p>
+                Selecciona una situación para ver una recomendación básica. Esta herramienta es educativa
+                y no sustituye una reclamación oficial con el banco.
+            </p>
+
+            <label for="tipoFraude" class="form-label">Tipo de situación:</label>
+
+            <select id="tipoFraude" class="form-control mb-3">
+                <option value="athmovil">Mensaje relacionado con ATH Móvil</option>
+                <option value="phishing">Correo o enlace falso del banco</option>
+                <option value="tarjeta">Cargo no reconocido en tarjeta</option>
+                <option value="otro">Situación que no estoy seguro</option>
+            </select>
+
+            <button id="btnEvaluar" class="btn btn-primary mb-3">Evaluar situación</button>
+
+            <div id="resultado" class="alert alert-info">
+                Selecciona una situación y presiona el botón.
+            </div>
+
+            <p class="mb-1"><strong>Nivel estimado de cuidado:</strong></p>
+
+            <div class="progress">
+                <div id="barraRiesgo" class="progress-bar" role="progressbar" style="width: 0%;">
+                    0%
+                </div>
+            </div>
+        </section>
+
+        <!-- sección 7: plan rápido generado por javascript -->
+        <section id="seccion7" class="caja mb-4">
+            <h2>Sección 7: Plan rápido si sospechas fraude</h2>
+
+            <p>
+                Esta lista presenta pasos básicos que puedes tomar si recibes un mensaje sospechoso
+                o notas un movimiento extraño en tu cuenta.
+            </p>
+
+            <ol id="listaPasos"></ol>
+
+            <div id="revisionInicial" class="alert alert-secondary">
+                Revisando recomendaciones iniciales...
+            </div>
+        </section>
+
+        <!-- sección 8: niveles de información generados por javascript -->
+        <section id="seccion8" class="caja mb-4">
+            <h2>Sección 8: Información que se maneja en un caso</h2>
+
+            <p>
+                Esta parte muestra ejemplos sencillos de datos que pueden estar disponibles dentro del portal,
+                dentro de un caso y dentro de una revisión específica.
+            </p>
+
+            <ul id="nivelesInformacion"></ul>
+        </section>
+
+        <!-- sección 9: contador con javascript -->
+        <section id="seccion9" class="caja mb-4">
+            <h2>Sección 9: Seguimiento de intentos de reporte</h2>
+
+            <p>
+                Usa este botón como una simulación para contar cuántas veces una persona intenta registrar
+                o revisar un posible reporte.
+            </p>
+
+            <button id="btnContador" class="btn btn-secondary">Registrar intento</button>
+
+            <p class="mt-3">
+                Intentos registrados:
+                <strong id="contador">0</strong>
+            </p>
+
+            <div id="mensajeContador" class="alert alert-secondary">
+                Todavía no se ha registrado ningún intento.
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Seguridad Bancaria. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

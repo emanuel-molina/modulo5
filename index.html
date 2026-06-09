@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguridad Bancaria</title>
+
+    
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!--navigation bar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+
+            <a class="navbar-brand" href="index.html">Seguridad Bancaria</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+                aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Inicio</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tipos-fraude">Tipos de fraude</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#proteccion">Protección</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#reportar">Reportar</a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- header -->
+    <header class="hero">
+        <div class="container text-center text-white">
+            <h1>Fraude Digital</h1>
+            <p>
+                Una guía sencilla para reconocer fraudes comunes, proteger tus cuentas y saber qué hacer
+                si entiendes que fuiste víctima de fraude.
+            </p>
+            <a href="#tipos-fraude" class="btn btn-light">Ver tipos de fraude</a>
+        </div>
+    </header>
+
+    <!-- contenido -->
+    <main class="container my-5">
+
+        <!-- intro -->
+        <section class="caja mb-4">
+            <h2>¿Qué es el fraude digital bancario?</h2>
+
+            <p>
+                El fraude digital bancario ocurre cuando una persona intenta engañar a otra para obtener acceso
+                a su información financiera, cuentas, tarjetas, contraseñas o códigos de seguridad. Muchas veces
+                estos fraudes llegan por mensajes de texto, correos electrónicos, llamadas telefónicas o aplicaciones
+                de pago.
+            </p>
+
+            <p>
+                Una de las áreas que más cuidado requiere es el uso de aplicaciones como ATH Móvil, Zelle etc.
+                ya que muchas personas las utilizan para enviar y recibir dinero de forma rápida. Por eso es importante
+                verificar bien antes de enviar dinero, contestar mensajes o compartir información personal.
+            </p>
+        </section>
+
+        <!-- fraude -->
+        <section id="tipos-fraude" class="mb-4">
+            <h2 class="titulo-pagina text-center mb-4">Tipos de fraude más comunes</h2>
+
+            <div class="row">
+
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card h-100 tarjeta-proyecto">
+
+                        <img src="images/athmovil.png" class="card-img-top" alt="Fraude relacionado con ATH Móvil">
+
+                        <div class="card-body">
+                            <h5 class="card-title">Fraude por ATH Móvil</h5>
+                            <p class="card-text">
+                                Este fraude puede ocurrir cuando alguien te pide devolver dinero por un supuesto error,
+                                confirmar una transacción o enviar un pago rápidamente. Si la persona te presiona,
+                                lo mejor es verificar primero con calma.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card h-100 tarjeta-proyecto">
+
+                        <img src="images/phishing.png" class="card-img-top" alt="Correo sospechoso de phishing">
+
+                        <div class="card-body">
+                            <h5 class="card-title">Phishing bancario</h5>
+                            <p class="card-text">
+                                El phishing ocurre cuando recibes un correo o mensaje que aparenta ser de tu banco.
+                                Normalmente incluye un enlace falso para robar contraseñas, códigos o información
+                                personal.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card h-100 tarjeta-proyecto">
+
+                        <img src="images/sms.png" class="card-img-top" alt="Fraude por mensaje de texto">
+
+                        <div class="card-body">
+                            <h5 class="card-title">Smishing</h5>
+                            <p class="card-text">
+                                El smishing es parecido al phishing, pero ocurre por mensajes de texto. Puede decir
+                                que tu cuenta fue bloqueada, que tienes una transacción pendiente o que debes verificar
+                                tus datos.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card h-100 tarjeta-proyecto">
+
+                        <img src="images/tarjeta.png" class="card-img-top" alt="Fraude con tarjeta bancaria">
+
+                        <div class="card-body">
+                            <h5 class="card-title">Fraude con tarjetas</h5>
+                            <p class="card-text">
+                                Este fraude puede incluir cargos no reconocidos, compras no autorizadas o uso indebido
+                                de una tarjeta. Por eso es importante revisar los movimientos de la cuenta con frecuencia.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- preguntas  acordeon bootstrap -->
+        <section class="accordion-section mb-4">
+            <h2 class="titulo-pagina text-center mb-4">Ejemplos de situaciones sospechosas</h2>
+
+            <div class="accordion" id="accordionFraude">
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingUno">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseUno" aria-expanded="true" aria-controls="collapseUno">
+                            “Tu cuenta fue bloqueada”
+                        </button>
+                    </h2>
+
+                    <div id="collapseUno" class="accordion-collapse collapse show" aria-labelledby="headingUno"
+                        data-bs-parent="#accordionFraude">
+                        <div class="accordion-body">
+                            Este tipo de mensaje busca crear preocupación para que la persona entre rápido a un link malicioso.
+                            Antes de hacerlo, lo más seguro es entrar directamente a la aplicación oficial del banco
+                            o llamar al número oficial de servicio al cliente.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingDos">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseDos" aria-expanded="false" aria-controls="collapseDos">
+                            “Confirma una transacción”
+                        </button>
+                    </h2>
+
+                    <div id="collapseDos" class="accordion-collapse collapse" aria-labelledby="headingDos"
+                        data-bs-parent="#accordionFraude">
+                        <div class="accordion-body">
+                            Algunos mensajes falsos indican que hubo una compra o transferencia sospechosa.
+                            Si recibes algo así, no uses el enlace del mensaje. Verifica desde la página oficial
+                            o desde la aplicación del banco.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTres">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTres" aria-expanded="false" aria-controls="collapseTres">
+                            “Ganaste un premio o reembolso”
+                        </button>
+                    </h2>
+
+                    <div id="collapseTres" class="accordion-collapse collapse" aria-labelledby="headingTres"
+                        data-bs-parent="#accordionFraude">9XCC
+                        <div class="accordion-body">
+                            En ocasiones, los atacantes usan ofertas falsas para obtener información personal
+                            o financiera. Si no solicitaste nada o el mensaje parece demasiado conveniente,
+                            es mejor verificar antes de compartir cualquier dato.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingCuatro">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseCuatro" aria-expanded="false" aria-controls="collapseCuatro">
+                            “Te envié dinero por error, devuélvemelo”
+                        </button>
+                    </h2>
+
+                    <div id="collapseCuatro" class="accordion-collapse collapse" aria-labelledby="headingCuatro"
+                        data-bs-parent="#accordionFraude">
+                        <div class="accordion-body">
+                            En este tipo de situación, una persona puede decir que envió dinero por error y pedir
+                            que se le devuelva rápidamente. Antes de enviar dinero, verifica directamente en la
+                            aplicación oficial y no actúes por presión de desconocidos.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+ <!-- fin de acordeon -->
+
+        <!-- Protección -->
+        <section id="proteccion" class="caja mb-4">
+            <h2>Cómo proteger tus cuentas bancarias</h2>
+
+            <p>
+                Para proteger tus cuentas, es importante evitar enlaces sospechosos, usar contraseñas seguras
+                y activar la autenticación multifactor cuando esté disponible. También conviene revisar tus cuentas
+                con frecuencia para identificar cargos o movimientos que no reconozcas.
+            </p>
+
+            <ul>
+                <li>No compartas contraseñas ni códigos de seguridad.</li>
+                <li>Entra al banco escribiendo la dirección oficial en el navegador.</li>
+                <li>Activa alertas de transacciones en tu cuenta.</li>
+                <li>Usa contraseñas diferentes para cada servicio.</li>
+                <li>Evita usar redes Wi-Fi públicas para entrar a cuentas bancarias.</li>
+                <li>Verifica bien antes de enviar dinero por ATH Móvil o cualquier aplicación de pago.</li>
+            </ul>
+        </section>
+
+        <!-- Reportar -->
+        <section id="reportar" class="caja mb-4">
+            <h2>Qué hacer si crees que fuiste víctima</h2>
+
+            <p>
+                Si crees que compartiste información en una página falsa o respondiste a un mensaje sospechoso,
+                debes actuar lo antes posible. Primero, comunícate con tu banco usando un canal oficial.
+                Luego, cambia tus contraseñas y revisa si existen cargos, retiros o movimientos que no reconoces.
+            </p>
+
+            <p>
+                Si la situación incluye robo de identidad, pérdida de dinero o uso indebido de información personal,
+                guarda evidencia del mensaje, la fecha, capturas de pantalla y cualquier comunicación relacionada.
+                Tener esa información organizada puede ayudarte al momento de presentar una reclamación.
+            </p>
+        </section>
+
+        <!-- Checklist -->
+        <section class="caja">
+            <h2>Lista rápida antes de reportar</h2>
+
+            <p>
+                Antes de presentar un reporte, es recomendable organizar la información para explicar mejor lo sucedido.
+            </p>
+
+            <ul>
+                <li>Fecha y hora del mensaje sospechoso.</li>
+                <li>Captura de pantalla del correo, texto o llamada recibida.</li>
+                <li>Enlace sospechoso, si aplica.</li>
+                <li>Nombre de la institución o aplicación que fue imitada.</li>
+                <li>Información que compartiste, si compartiste alguna.</li>
+                <li>Cargos, pagos o movimientos no reconocidos.</li>
+                <li>Número de reclamación del banco, si ya reportaste el caso.</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Seguridad Bancaria Digital. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Bootstrap JavaScript local -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
