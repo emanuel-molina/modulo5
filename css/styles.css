@@ -1,74 +1,61 @@
 body {
     background-color: #0f172a;
-    color: #1e293b;
     font-family: Arial, sans-serif;
+    color: #1e293b;
 }
 
-/* NAVBAR */
-.navbar {
-    background-color: #020617 !important;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
-}
-
+/* navbar */
 .navbar-brand {
-    color: #38bdf8;
     font-weight: bold;
-}
-
-.navbar-brand:hover {
-    color: #ffffff;
+    color: #38bdf8 !important;
 }
 
 .navbar-nav .nav-link {
-    color: #cbd5e1;
-    margin-left: 15px;
+    color: #cbd5e1 !important;
     font-weight: bold;
 }
 
 .navbar-nav .nav-link:hover {
-    color: #38bdf8;
-    text-decoration: underline;
+    color: #38bdf8 !important;
 }
 
-.navbar-nav .nav-link.active {
-    color: #ffffff;
-}
-
-/* HERO */
+/* hero */
 .hero {
-    min-height: 420px;
-    background-image: linear-gradient(rgba(15, 23, 42, 0.78), rgba(14, 116, 144, 0.55)), url("../images/header.jpg");
+    min-height: 360px;
+    background-image: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), url("../images/header.jpg");
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
     display: flex;
     align-items: center;
 }
 
 .hero h1 {
-    font-size: 44px;
+    font-size: 42px;
     font-weight: bold;
 }
 
 .hero p {
     font-size: 18px;
-    margin-bottom: 20px;
 }
 
-/* CAJAS */
+/* cajas */
 .caja {
     background-color: #f8fafc;
-    color: #1e293b;
-    padding: 28px;
+    padding: 25px;
     border-radius: 12px;
     border: 1px solid #dbeafe;
-    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.18);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
 }
 
-.caja h1,
 .caja h2 {
     color: #0f172a;
     font-weight: bold;
+}
+
+.caja h3 {
+    font-size: 21px;
+    margin-top: 20px;
+    color: #0f172a;
 }
 
 .caja p,
@@ -76,18 +63,18 @@ body {
     line-height: 1.6;
 }
 
-/* TÍTULOS */
-.titulo-pagina {
+/* título en fondo oscuro */
+.titulo {
     color: #ffffff;
     font-weight: bold;
 }
 
-/* TARJETAS */
-.tarjeta-proyecto {
-    background-color: #f8fafc;
-    border: 1px solid #dbeafe;
+/* tarjetas */
+.card {
     border-radius: 12px;
-    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.18);
+    border: 1px solid #dbeafe;
+    height: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
 }
 
 .card-title {
@@ -97,19 +84,12 @@ body {
 
 .card-text {
     color: #334155;
-    line-height: 1.5;
 }
 
-.card-img-top {
-    height: 200px;
-    object-fit: cover;
-}
-
-/* BOTONES */
+/* botones */
 .btn-primary {
     background-color: #0284c7;
     border-color: #0284c7;
-    color: #ffffff;
 }
 
 .btn-primary:hover {
@@ -127,51 +107,36 @@ body {
     border-color: #1e293b;
 }
 
-.btn-light {
-    color: #0f172a;
-    font-weight: bold;
+/* barra de progreso */
+.progress {
+    height: 28px;
+    background-color: #dbeafe;
 }
 
-/* ACCORDION */
-.accordion-section {
-    margin-top: 30px;
-}
-
-.accordion .accordion-item {
-    border: 1px solid #dbeafe;
-    border-radius: 10px;
-    margin-bottom: 12px;
-    overflow: hidden;
-    background-color: #f8fafc;
-}
-
-.accordion-button {
-    background-color: #e0f2fe;
-    color: #0f172a;
-    font-weight: bold;
-}
-
-.accordion-button:not(.collapsed) {
+.progress-bar {
     background-color: #0284c7;
-    color: #ffffff;
+    font-weight: bold;
 }
 
-.accordion-button:focus {
-    box-shadow: 0 0 5px rgba(2, 132, 199, 0.45);
+/* listas */
+#listaPasos,
+#infoCaso {
+    padding-left: 24px;
 }
 
-.accordion-body {
-    background-color: #f8fafc;
-    color: #334155;
-    line-height: 1.6;
+/* alertas */
+#resultado,
+#mensajeRevision,
+#mensajeContador {
+    font-weight: bold;
 }
 
-/* FOOTER */
+/* footer */
 .footer {
     background-color: #020617;
     color: #cbd5e1;
     text-align: center;
-    padding: 18px;
+    padding: 15px;
     margin-top: 40px;
 }
 
@@ -179,32 +144,61 @@ body {
     margin: 0;
 }
 
-/* RESPONSIVE */
+/* responsive */
 @media screen and (max-width: 768px) {
     .hero {
-        min-height: 320px;
+        min-height: 300px;
         padding: 20px;
     }
 
     .hero h1 {
-        font-size: 32px;
+        font-size: 30px;
     }
 
     .hero p {
         font-size: 16px;
     }
 
+    .caja {
+        padding: 20px;
+    }
+
     .navbar-nav .nav-link {
-        margin-left: 0;
         text-align: center;
     }
+}
 
-    .caja {
-        margin-bottom: 20px;
-        padding: 22px;
-    }
+.paso-card {
+    background-color: #e0f2fe;
+    border: 1px solid #bae6fd;
+    border-radius: 12px;
+    padding: 16px;
+    height: 100%;
+}
 
-    .card-img-top {
-        height: 180px;
-    }
+.paso-card p {
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+.revision-card {
+    background-color: #dcfce7;
+    border: 1px solid #86efac;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    height: 100%;
+}
+
+.revision-card .check {
+    display: block;
+    font-size: 28px;
+    font-weight: bold;
+    color: #15803d;
+}
+
+.revision-card p {
+    margin: 8px 0 0 0;
+    font-weight: bold;
 }

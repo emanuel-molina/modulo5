@@ -1,241 +1,253 @@
-// archivo interactivo de la pagina de fraude digital bancario
-// cada bloque indica que seccion visual de la website modifica
-
 document.addEventListener("DOMContentLoaded", function () {
 
-    // esta funcion principal espera que el html cargue completo antes de ejecutar el codigo
-    // afecta a toda la pagina porque evita errores al buscar elementos por id
+    // parte 1
+
+    console.log("Parte 1: La página cargó correctamente desde script.js.");
 
 
-    // =====================================================
-    // seccion 3: resumen del portal
-    // afecta al div id="panelResumen"
-    // proposito de la tarea: practica variables, tipos de datos, arreglo de objetos y loop for
-    // esta parte crea tarjetas visuales con informacion general del portal
-    // =====================================================
+    // parte 2
 
-    let nombrePortal = "Seguridad Bancaria";
-    let cantidadTemas = 3;
+    let nombrePortal = "Centro Educativo de Fraude Digital";
+    let totalAlertas = 3;
     let portalActivo = true;
 
-    let resumen = [
+    let datosPortal = {
+        tema: "Fraude digital bancario",
+        enfoque: "Prevención y educación",
+        ubicacion: "Puerto Rico"
+    };
+
+    let panelPortal = document.getElementById("panelPortal");
+
+    panelPortal.innerHTML =
+        "<h3>Datos del portal</h3>" +
+        "<p>Nombre: " + nombrePortal + "</p>" +
+        "<p>Total de alertas: " + totalAlertas + "</p>" +
+        "<p>Portal activo: " + portalActivo + "</p>" +
+        "<p>Tema: " + datosPortal.tema + "</p>" +
+        "<p>Enfoque: " + datosPortal.enfoque + "</p>" +
+        "<p>Ubicación: " + datosPortal.ubicacion + "</p>";
+
+    console.log("Parte 2: Se cargaron los datos principales del portal.");
+
+
+    // parte 3
+
+    let alertas = [
         {
-            titulo: "Portal",
-            valor: nombrePortal,
-            detalle: "guía educativa para usuarios bancarios"
+            nombre: "ATH Móvil falso",
+            descripcion: "Mensaje donde alguien pide enviar o devolver dinero con urgencia.",
+            consejo: "Verifica directamente en la aplicación oficial.",
+            riesgo: "alto"
         },
         {
-            titulo: "Temas",
-            valor: cantidadTemas,
-            detalle: "fraudes principales explicados"
+            nombre: "Phishing bancario",
+            descripcion: "Correo o enlace que aparenta ser de un banco para robar información.",
+            consejo: "No abras enlaces sospechosos.",
+            riesgo: "alto"
         },
         {
-            titulo: "Estado",
-            valor: portalActivo ? "activo" : "inactivo",
-            detalle: "contenido disponible para revisión"
+            nombre: "Cargo no reconocido",
+            descripcion: "Movimiento extraño en una tarjeta o cuenta bancaria.",
+            consejo: "Revisa tus movimientos y reporta al banco.",
+            riesgo: "alto"
         }
     ];
 
-    let panelResumen = document.getElementById("panelResumen");
+    let contenedorAlertas = document.getElementById("contenedorAlertas");
 
-    for (let i = 0; i < resumen.length; i++) {
+    for (let i = 0; i < alertas.length; i++) {
         let columna = document.createElement("div");
         columna.className = "col-md-4 mb-3";
 
         columna.innerHTML =
             '<div class="card">' +
                 '<div class="card-body">' +
-                    '<h5 class="card-title">' + resumen[i].titulo + '</h5>' +
-                    '<p class="card-text display-6">' + resumen[i].valor + '</p>' +
-                    '<span class="badge bg-info text-dark">' + resumen[i].detalle + '</span>' +
+                    '<h5 class="card-title">' + alertas[i].nombre + '</h5>' +
+                    '<p class="card-text">' + alertas[i].descripcion + '</p>' +
+                    '<p><strong>Consejo:</strong> ' + alertas[i].consejo + '</p>' +
+                    '<span class="badge bg-danger">Riesgo ' + alertas[i].riesgo + '</span>' +
                 '</div>' +
             '</div>';
 
-        panelResumen.appendChild(columna);
+        contenedorAlertas.appendChild(columna);
+
+        console.log("Parte 3: Se creó una tarjeta para " + alertas[i].nombre + ".");
     }
 
 
-    // =====================================================
-    // seccion 4: tipos de fraude mas comunes
-    // afecta al div id="tarjetasFraude"
-    // proposito de la tarea: practica arreglos, objetos y loop for
-    // esta parte crea las tarjetas de ath movil, phishing y fraude con tarjetas
-    // =====================================================
-
-    let fraudes = [
-        {
-            nombre: "ath móvil",
-            descripcion: "mensajes donde alguien pide devolver dinero o enviar un pago con urgencia.",
-            nivel: "alto"
-        },
-        {
-            nombre: "phishing bancario",
-            descripcion: "correos o enlaces falsos que aparentan ser de una institución financiera.",
-            nivel: "alto"
-        },
-        {
-            nombre: "fraude con tarjetas",
-            descripcion: "cargos no reconocidos, compras no autorizadas o uso indebido de la tarjeta.",
-            nivel: "alto"
-        }
-    ];
-
-    let tarjetasFraude = document.getElementById("tarjetasFraude");
-
-    for (let i = 0; i < fraudes.length; i++) {
-        let columna = document.createElement("div");
-        columna.className = "col-md-4 mb-3";
-
-        columna.innerHTML =
-            '<div class="card">' +
-                '<div class="card-body">' +
-                    '<h5 class="card-title">' + fraudes[i].nombre + '</h5>' +
-                    '<p class="card-text">' + fraudes[i].descripcion + '</p>' +
-                    '<span class="badge bg-danger">cuidado ' + fraudes[i].nivel + '</span>' +
-                '</div>' +
-            '</div>';
-
-        tarjetasFraude.appendChild(columna);
-    }
-
-
-    // =====================================================
-    // seccion 6: evaluador de situacion sospechosa
-    // afecta al select id="tipoFraude", boton id="btnEvaluar",
-    // mensaje id="resultado" y barra id="barraRiesgo"
-    // proposito de la tarea: practica funcion, if, else if, else y evento click
-    // la funcion evaluarSituacion recibe una opcion y devuelve mensaje y porcentaje de cuidado
-    // =====================================================
+    // parte 4
 
     function evaluarSituacion(tipo) {
         if (tipo === "athmovil") {
             return {
-                mensaje: "cuidado alto: verifica directamente en la aplicación oficial antes de enviar o devolver dinero.",
+                mensaje: "Riesgo alto: confirma en ATH Móvil antes de enviar o devolver dinero.",
+                recomendacion: "No actúes por presión. Verifica primero desde la aplicación oficial.",
                 porcentaje: 90
             };
         } else if (tipo === "phishing") {
             return {
-                mensaje: "cuidado alto: no abras enlaces ni escribas contraseñas en páginas sospechosas.",
+                mensaje: "Riesgo alto: puede ser un intento de robar tus credenciales.",
+                recomendacion: "No abras enlaces ni escribas contraseñas en páginas desconocidas.",
                 porcentaje: 95
             };
         } else if (tipo === "tarjeta") {
             return {
-                mensaje: "cuidado alto: revisa tus movimientos y reporta cargos no reconocidos.",
+                mensaje: "Riesgo alto: puede haber un cargo no autorizado.",
+                recomendacion: "Revisa la cuenta y reporta el cargo al banco.",
                 porcentaje: 85
             };
         } else {
             return {
-                mensaje: "cuidado moderado: recopila evidencia y verifica antes de actuar.",
+                mensaje: "Riesgo moderado: la situación necesita verificación.",
+                recomendacion: "Guarda evidencia y consulta con tu banco antes de actuar.",
                 porcentaje: 60
             };
         }
     }
 
     let btnEvaluar = document.getElementById("btnEvaluar");
-    let resultado = document.getElementById("resultado");
+    let resultadoEvaluacion = document.getElementById("resultadoEvaluacion");
     let barraRiesgo = document.getElementById("barraRiesgo");
+    let recomendacionFinal = document.getElementById("recomendacionFinal");
 
     btnEvaluar.addEventListener("click", function () {
-        let tipo = document.getElementById("tipoFraude").value;
-        let evaluacion = evaluarSituacion(tipo);
+        let tipoSeleccionado = document.getElementById("tipoFraude").value;
+        let evaluacion = evaluarSituacion(tipoSeleccionado);
 
-        resultado.textContent = evaluacion.mensaje;
-        resultado.className = "alert alert-warning";
+        resultadoEvaluacion.textContent = evaluacion.mensaje;
+        resultadoEvaluacion.className = "alert alert-warning";
 
         barraRiesgo.style.width = evaluacion.porcentaje + "%";
         barraRiesgo.textContent = evaluacion.porcentaje + "%";
+
+        recomendacionFinal.textContent = evaluacion.recomendacion;
+
+        console.log("Parte 4: Se evaluó la opción seleccionada: " + tipoSeleccionado + ".");
     });
 
 
-    // =====================================================
-    // seccion 7: plan rapido si sospechas fraude
-    // afecta a la lista id="listaPasos"
-    // proposito de la tarea: practica arreglo y loop while
-    // esta parte añade pasos de respuesta dentro de una lista ordenada
-    // =====================================================
+    // parte 5
 
     let pasos = [
-        "guarda evidencia del mensaje o transacción.",
-        "verifica directamente con el banco o aplicación oficial.",
-        "cambia tus contraseñas si compartiste información.",
-        "revisa tus movimientos recientes.",
-        "reporta cargos o pagos que no reconozcas."
+        {
+            titulo: "Paso 1",
+            texto: "Guardar evidencia del mensaje o transacción."
+        },
+        {
+            titulo: "Paso 2",
+            texto: "Verificar directamente con el banco o aplicación oficial."
+        },
+        {
+            titulo: "Paso 3",
+            texto: "No enviar dinero por presión."
+        },
+        {
+            titulo: "Paso 4",
+            texto: "Cambiar contraseñas si se compartió información."
+        },
+        {
+            titulo: "Paso 5",
+            texto: "Reportar cargos o pagos no reconocidos."
+        }
     ];
 
     let listaPasos = document.getElementById("listaPasos");
     let contadorPasos = 0;
 
     while (contadorPasos < pasos.length) {
-        let paso = document.createElement("li");
-        paso.textContent = pasos[contadorPasos];
-        listaPasos.appendChild(paso);
+        let columnaPaso = document.createElement("div");
+        columnaPaso.className = "col-md-4 mb-3";
+
+        columnaPaso.innerHTML =
+            '<div class="paso-card">' +
+                '<span class="badge bg-primary">' + pasos[contadorPasos].titulo + '</span>' +
+                '<p>' + pasos[contadorPasos].texto + '</p>' +
+            '</div>';
+
+        listaPasos.appendChild(columnaPaso);
+
+        console.log("Parte 5: Se cargó " + pasos[contadorPasos].titulo + ".");
+
         contadorPasos++;
     }
 
 
-    // =====================================================
-    // seccion 7: revision inicial del plan
-    // afecta al div id="revisionInicial"
-    // proposito de la tarea: practica do...while
-    // esta parte muestra un mensaje de revision inicial completada
-    // =====================================================
+    // parte 5
 
-    let revision = 0;
-    let mensajeRevision = "";
+    let verificaciones = [
+        "Evidencia identificada",
+        "Banco pendiente de contacto",
+        "Recomendaciones cargadas"
+    ];
+
+    let revisionVisual = document.getElementById("revisionVisual");
+    let contadorRevision = 0;
+    let textoRevision = "";
 
     do {
-        mensajeRevision = "revisión inicial completada: ya puedes verificar los pasos recomendados.";
-        revision++;
-    } while (revision < 1);
+        let columnaRevision = document.createElement("div");
+        columnaRevision.className = "col-md-4 mb-3";
 
-    let revisionInicial = document.getElementById("revisionInicial");
-    revisionInicial.textContent = mensajeRevision;
-    revisionInicial.className = "alert alert-success";
+        columnaRevision.innerHTML =
+            '<div class="revision-card">' +
+                '<span class="check">✓</span>' +
+                '<p>' + verificaciones[contadorRevision] + '</p>' +
+            '</div>';
+
+        revisionVisual.appendChild(columnaRevision);
+
+        textoRevision = "Revisión completada: el plan básico de acción fue cargado correctamente.";
+
+        console.log("Parte 5: Se completó la revisión visual: " + verificaciones[contadorRevision] + ".");
+
+        contadorRevision++;
+
+    } while (contadorRevision < verificaciones.length);
+
+    let mensajeRevision = document.getElementById("mensajeRevision");
+    mensajeRevision.textContent = textoRevision;
+    mensajeRevision.className = "alert alert-success";
 
 
-    // =====================================================
-    // seccion 8: informacion que se maneja en un caso
-    // afecta a la lista id="nivelesInformacion"
-    // proposito de la tarea: practica alcance global, local y de bloque
-    // la funcion mostrarDatosDelCaso añade ejemplos de informacion a la pagina
-    // =====================================================
+    // parte 6
 
-    let nivelesInformacion = document.getElementById("nivelesInformacion");
+    let infoCaso = document.getElementById("infoCaso");
 
-    let datoGeneral = "dato general del portal: tema de seguridad bancaria.";
+    let datoGeneral = "Dato general: la página trata sobre fraude digital bancario.";
 
-    function mostrarDatosDelCaso() {
-        let datoDelCaso = "dato del caso: tipo de fraude seleccionado por el usuario.";
+    function mostrarInfoCaso() {
+        let datoCaso = "Dato del caso: el usuario evalúa una situación sospechosa.";
 
         if (true) {
-            let datoDeRevision = "dato de revisión: mensaje que se muestra luego de evaluar la situación.";
+            let datoRevision = "Dato de revisión: se recomienda verificar antes de actuar.";
 
             let itemRevision = document.createElement("li");
-            itemRevision.textContent = datoDeRevision;
-            nivelesInformacion.appendChild(itemRevision);
+            itemRevision.textContent = datoRevision;
+            infoCaso.appendChild(itemRevision);
+
+            console.log("Parte 6: Se cargó un dato de revisión.");
         }
 
         let itemCaso = document.createElement("li");
-        itemCaso.textContent = datoDelCaso;
-        nivelesInformacion.appendChild(itemCaso);
+        itemCaso.textContent = datoCaso;
+        infoCaso.appendChild(itemCaso);
+
+        console.log("Parte 6: Se cargó un dato del caso.");
     }
 
     let itemGeneral = document.createElement("li");
     itemGeneral.textContent = datoGeneral;
-    nivelesInformacion.appendChild(itemGeneral);
+    infoCaso.appendChild(itemGeneral);
 
-    mostrarDatosDelCaso();
+    console.log("Parte 6: Se cargó un dato general.");
+
+    mostrarInfoCaso();
 
 
-    // =====================================================
-    // seccion 9: seguimiento de intentos de reporte
-    // afecta al boton id="btnContador", numero id="contador"
-    // y mensaje id="mensajeContador"
-    // proposito de la tarea: practica clausura y evento click
-    // la funcion crearRegistroDeIntentos recuerda el total de intentos aunque ya termino su ejecucion inicial
-    // =====================================================
+    // parte 6
 
-    function crearRegistroDeIntentos() {
+    function crearContador() {
         let totalIntentos = 0;
 
         return function () {
@@ -244,7 +256,7 @@ document.addEventListener("DOMContentLoaded", function () {
         };
     }
 
-    let registrarIntento = crearRegistroDeIntentos();
+    let registrarIntento = crearContador();
 
     let btnContador = document.getElementById("btnContador");
     let contador = document.getElementById("contador");
@@ -254,8 +266,10 @@ document.addEventListener("DOMContentLoaded", function () {
         let total = registrarIntento();
 
         contador.textContent = total;
-        mensajeContador.textContent = "intento registrado correctamente. total actual: " + total;
+        mensajeContador.textContent = "Intento registrado correctamente. Total actual: " + total;
         mensajeContador.className = "alert alert-success";
+
+        console.log("Parte 6: Se registró un intento número " + total + ".");
     });
 
 });
